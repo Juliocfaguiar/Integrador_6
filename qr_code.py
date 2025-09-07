@@ -1,5 +1,6 @@
 import streamlit as st
 import qrcode
+import os
 from io import BytesIO
 from PIL import Image, ImageDraw, ImageFont
 import cv2
@@ -13,7 +14,10 @@ with col2:
     st.title(":blue[Estufa IOT]")
     st.title("Projeto Integrador 6")
 with col3:
-    st.image("Code.png", width=150)
+    if os.path.exists("code.png"):
+        st.image("code.png", width=150)
+    else:
+        st.error("Arquivo 'code.png' não encontrado.")
 
 # ---------------- Tabs ----------------
 tab1, tab2 = st.tabs(["🖼️ Gerar QR Codes (JPG - A4)", "📷 Ler QR Codes"])
